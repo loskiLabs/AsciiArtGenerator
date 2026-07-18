@@ -1,5 +1,7 @@
 from PIL import Image
 
+#This is V1 and every function is in here with minimal error handling. This was speciffically for images ONLY!!!
+
 class AsciiGenerator:
 # all the processing functions to be used in main
 
@@ -64,7 +66,7 @@ class AsciiGenerator:
         for i in range(0, len(ascii_str), width):
             ascii_art += ascii_str[i:i+width] + "\n"
 
-        self.__saveArt(ascii_art, "output.txt")
+        self.__saveArt(ascii_art, "output/output.txt")
 
         return ascii_art
 

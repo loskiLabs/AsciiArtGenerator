@@ -1,8 +1,25 @@
-from ascii_generator import AsciiGenerator
+from ascii_converter import AsciiConverter
+from file_saver import FileSaver
+from image_source import ImageSource
 
-generator = AsciiGenerator()
 
-ascii_art = generator.generateAsciiArt("images/test_car.jpg")
+def main():
+    iSource = ImageSource()
+    converter = AsciiConverter()
+    saver = FileSaver()
 
-print(ascii_art)
+    image = iSource.load("images/test_car.jpg")
 
+    if image is None:
+        return
+
+    try:
+        ascii_art = converter.convert(image, width=100)
+        print(ascii_art)
+        saver.save(ascii_art, "output/output.txt")
+    finally:
+        image.close()
+
+
+if __name__ == "__main__":
+    main()
