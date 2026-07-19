@@ -1,7 +1,7 @@
 from pathlib import Path
 
 
-class FileSaver:
+class ImageSaver:
     """Save text content to files."""
 
     def save(self, content, filename="output/output.txt"):
